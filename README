@@ -1,0 +1,67 @@
+# Projet Web - Guide d'installation
+
+Ce guide vous aidera à installer et à exécuter le front-end et le back-end de notre projet web.
+
+## Back-end (Nest.js)
+
+1. Assurez-vous d'avoir Node.js installé sur votre machine.
+
+2. Clonez le dépôt du back-end depuis GitHub:
+
+    ```bash
+    git clone <lien-du-repo-back-end>
+    ```
+
+3. Accédez au répertoire du back-end:
+
+    ```bash
+    cd nom-du-repo-back-end
+    ```
+
+4. Installez les dépendances:
+
+    ```bash
+    npm install
+    ```
+
+5. Configurez les variables d'environnement en créant un fichier `.env` à la racine du projet et en y ajoutant les valeurs appropriées.
+
+6. Lancez le serveur de développement:
+
+    ```bash
+    npm run start:dev
+    ```
+
+    Le serveur sera accessible à l'adresse `http://localhost:3000`.
+
+## Front-end (React)
+
+1. Assurez-vous d'avoir Node.js installé sur votre machine.
+
+2. Clonez le dépôt du front-end depuis GitHub:
+
+    ```bash
+    git clone <lien-du-repo-front-end>
+    ```
+
+3. Accédez au répertoire du front-end:
+
+    ```bash
+    cd nom-du-repo-front-end
+    ```
+
+4. Installez les dépendances:
+
+    ```bash
+    npm install
+    ```
+
+5. Configurez les variables d'environnement en créant un fichier `.env` à la racine du projet et en y ajoutant les valeurs appropriées.
+
+6. Lancez l'application en mode développement:
+
+    ```bash
+    npm start
+    ```
+
+    L'application sera accessible à l'adresse `http://localhost:3000`.
