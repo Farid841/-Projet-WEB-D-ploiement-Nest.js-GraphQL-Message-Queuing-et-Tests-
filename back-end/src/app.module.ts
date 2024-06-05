@@ -1,4 +1,3 @@
-// src/app.module.ts
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
@@ -8,6 +7,7 @@ import { AppController } from './app.controller';
 import { ConversationResolver } from './resolvers/conversation.resolver';
 import { MessageResolver } from './resolvers/message.resolver';
 import { QueueModule } from './queue/queue.module';
+import { SimpleResolver } from './resolvers/simple.resolver';
 
 @Module({
   imports: [
@@ -19,6 +19,6 @@ import { QueueModule } from './queue/queue.module';
     QueueModule,
   ],
   controllers: [AppController],
-  providers: [ConversationResolver, MessageResolver],
+  providers: [ConversationResolver, MessageResolver, SimpleResolver],
 })
-export class AppModule { }
+export class AppModule {}
