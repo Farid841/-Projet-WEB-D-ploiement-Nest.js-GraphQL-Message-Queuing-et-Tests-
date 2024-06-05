@@ -8,6 +8,8 @@ import { ConversationResolver } from './resolvers/conversation.resolver';
 import { MessageResolver } from './resolvers/message.resolver';
 import { QueueModule } from './queue/queue.module';
 import { SimpleResolver } from './resolvers/simple.resolver';
+import { ConversationModule } from './modules/conversation/conversation.module';
+import { MessageModule } from './modules/message/message.module';
 
 @Module({
   imports: [
@@ -17,6 +19,8 @@ import { SimpleResolver } from './resolvers/simple.resolver';
     }),
     HealthModule,
     QueueModule,
+    ConversationModule,
+    MessageModule,
   ],
   controllers: [AppController],
   providers: [ConversationResolver, MessageResolver, SimpleResolver],
