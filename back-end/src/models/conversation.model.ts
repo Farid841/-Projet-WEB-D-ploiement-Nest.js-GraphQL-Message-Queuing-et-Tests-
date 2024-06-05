@@ -3,9 +3,12 @@ import { User } from './user.model';
 
 @ObjectType()
 export class Conversation {
-    @Field(() => ID)
-    id: string;
+  @Field(() => ID)
+  id: string;
 
-    @Field(() => [User])
-    participants: User[];
+  @Field(() => [User])
+  participants: User[];
+
+  @Field()
+  createdAt: Date;
 }
