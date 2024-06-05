@@ -1,4 +1,4 @@
-name: Build NestJS Project
+name: CHAT PROJECT
 
 on:
   push:
@@ -16,10 +16,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
+        working-directory: ./back-end
 
       - name: Build the project
         run: npm run build
+        working-directory: ./back-end
+
