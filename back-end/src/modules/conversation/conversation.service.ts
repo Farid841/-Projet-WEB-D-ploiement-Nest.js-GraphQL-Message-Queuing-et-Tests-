@@ -9,7 +9,7 @@ import { UserRepository } from '../user/user.repository'; // Importez le reposit
 export class ConversationService {
   constructor(
     private readonly conversationRepository: ConversationRepository,
-    private readonly userRepository: UserRepository, // Ajoutez le repository User ici si vous l'utilisez
+    private readonly userRepository: UserRepository,
   ) {}
 
   async createConversation(participants: User[]): Promise<Conversation> {

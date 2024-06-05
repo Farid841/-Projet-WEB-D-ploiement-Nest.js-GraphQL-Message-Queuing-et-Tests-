@@ -5,11 +5,19 @@
 type User {
   id: ID!
   username: String!
+  email: String!
+  createdAt: DateTime!
 }
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
 
 type Conversation {
   id: ID!
   participants: [User!]!
+  createdAt: DateTime!
 }
 
 type Message {
@@ -17,6 +25,7 @@ type Message {
   content: String!
   sender: User!
   conversation: Conversation!
+  createdAt: DateTime!
 }
 
 type SimpleResult {
@@ -24,11 +33,16 @@ type SimpleResult {
 }
 
 type Query {
-  getUserConversations(userId: String!): [Conversation!]!
-  getConversationMessages(conversationId: String!): [Message!]!
+  userConversations(userId: String!): [Conversation!]!
+  conversation(id: String!): Conversation!
   simpleQuery: SimpleResult!
+  user(id: String!): User!
+  message(id: String!): Message!
 }
 
 type Mutation {
+  createConversation(participantIds: [String!]!): Conversation!
   sendMessage(content: String!, senderId: String!, conversationId: String!): Message!
+  createUser(username: String!, email: String!): User!
+  createMessage(content: String!, senderId: String!, conversationId: String!): Message!
 }

@@ -3,12 +3,12 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { HealthModule } from './health/health.module';
+import { QueueModule } from './queue/queue.module';
 import { AppController } from './app.controller';
 import { ConversationResolver } from './resolvers/conversation.resolver';
 import { MessageResolver } from './resolvers/message.resolver';
-import { QueueModule } from './queue/queue.module';
-import { SimpleResolver } from './resolvers/simple.resolver';
 import { ConversationModule } from './modules/conversation/conversation.module';
+import { UserModule } from './modules/user/user.module';
 import { MessageModule } from './modules/message/message.module';
 
 @Module({
@@ -20,9 +20,10 @@ import { MessageModule } from './modules/message/message.module';
     HealthModule,
     QueueModule,
     ConversationModule,
+    UserModule,
     MessageModule,
   ],
   controllers: [AppController],
-  providers: [ConversationResolver, MessageResolver, SimpleResolver],
+  providers: [ConversationResolver, MessageResolver],
 })
 export class AppModule {}

@@ -15,4 +15,5 @@ export class MessageService {
   async findMessageById(id: string): Promise<Message> {
     return this.messageRepository.findMessageById(id);
   }
+
 }
