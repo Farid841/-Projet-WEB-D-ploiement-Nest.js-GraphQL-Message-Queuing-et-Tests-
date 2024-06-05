@@ -7,6 +7,7 @@ import { HealthModule } from './health/health.module';
 import { AppController } from './app.controller';
 import { ConversationResolver } from './resolvers/conversation.resolver';
 import { MessageResolver } from './resolvers/message.resolver';
+import { QueueModule } from './queue/queue.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { MessageResolver } from './resolvers/message.resolver';
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
     HealthModule,
+    QueueModule,
   ],
   controllers: [AppController],
   providers: [ConversationResolver, MessageResolver],
