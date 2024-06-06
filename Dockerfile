@@ -3,20 +3,20 @@ FROM node:16-alpine
 # Create and change to the app directory.
 WORKDIR /usr/src/app
 
+# Copy package.json and package-lock.json to the working directory
+COPY back-end/package*.json ./
 
-COPY package*.json ./
-
-# Install production dependencies.
+# Install dependencies
 RUN npm install
 
-# Copy local code to the container image.
-COPY . .
+# Copy the backend code to the container
+COPY back-end ./
 
 # Build the application
 RUN npm run build
 
-# Run the web service on container startup.
+# Run the web service on container startup
 CMD [ "npm", "run", "start:prod" ]
 
-# Inform Docker that the container listens on the specified port.
+# Inform Docker that the container listens on the specified port
 EXPOSE 3000
