@@ -1,8 +1,7 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { MessageService } from './message.service';
 import { Message } from '../../models/message.model';
-import { QueueService } from 'src/queue/queue.service';
-
+import { QueueService } from '../../queue/queue.service';
 @Resolver(() => Message)
 export class MessageResolver {
   constructor(
@@ -24,7 +23,7 @@ export class MessageResolver {
     const message = {
       content,
       sender: senderId,
-      conversation: conversationId
+      conversation: conversationId,
     } as unknown as Message;
     await this.queueService.addMessageToQueue(message);
     return true;

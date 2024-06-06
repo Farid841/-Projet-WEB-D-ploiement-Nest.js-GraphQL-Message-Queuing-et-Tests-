@@ -1,11 +1,11 @@
 import { Processor, Process } from '@nestjs/bull';
 import { Job } from 'bullmq';
-import { MessageService } from '../modules/message/message.service';
 import { Injectable } from '@nestjs/common';
+import { MessageService } from './message.service';
 
 @Injectable()
 @Processor('message-queue')
-export class QueueProcessor {
+export class MessageProcessor {
   constructor(private readonly messageService: MessageService) {}
 
   @Process('sendMessage')
