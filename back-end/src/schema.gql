@@ -28,15 +28,21 @@ type Message {
   createdAt: DateTime!
 }
 
+type SimpleResult {
+  result: String!
+}
+
 type Query {
   userConversations(userId: String!): [Conversation!]!
   conversation(id: String!): Conversation!
+  simpleQuery: SimpleResult!
   user(id: String!): User!
   message(id: String!): Message!
 }
 
 type Mutation {
   createConversation(participantIds: [String!]!): Conversation!
-  sendMessage(content: String!, senderId: String!, conversationId: String!): Boolean!
+  sendMessage(content: String!, senderId: String!, conversationId: String!): Message!
   createUser(username: String!, email: String!): User!
+  createMessage(content: String!, senderId: String!, conversationId: String!): Message!
 }
