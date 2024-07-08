@@ -7,18 +7,16 @@ import { Conversation } from '../../models/conversation.model';
 export class MessageRepository {
   private messages: Message[] = [];
 
-  async createMessage(content: string, sender: User, conversation: Conversation): Promise<Message> {
-    const message = new Message();
-    message.id = Date.now().toString(); // Génération d'un ID unique
-    message.content = content;
-    message.sender = sender;
-    message.conversation = conversation;
-    message.createdAt = new Date();
+  async createMessage(message: Message): Promise<Message> {
     this.messages.push(message);
     return message;
   }
 
   async findMessageById(id: string): Promise<Message> {
-    return this.messages.find(message => message.id === id);
+    const message = this.messages.find((message) => message.id === id);
+    if (!message) {
+      throw new Error(`Message with ID ${id} not found`);
+    }
+    return message;
   }
 }
